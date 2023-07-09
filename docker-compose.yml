@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        PASSWORD: ${PASSWORD}
+    ports:
+      - "2022:22"
+    network_mode: bridge
+  proxy:
+    image: mitmproxy/mitmproxy
+    tty: true
+    ports:
+      - "8080:8080"
+    network_mode: bridge
+    entrypoint: /bin/bash
