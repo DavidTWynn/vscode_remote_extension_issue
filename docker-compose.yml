@@ -13,4 +13,4 @@ services:
     ports:
       - "8080:8080"
     network_mode: bridge
-    entrypoint: /bin/bash
+    entrypoint: /usr/local/bin/mitmdump --showhost --ssl-insecure --set upstream_cert=false --save-stream-file /var/log/mitmdump.log &
